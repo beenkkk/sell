@@ -1,4 +1,4 @@
-import requests
+import requests, datetime
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
@@ -13,11 +13,13 @@ def home():
 
 @app.route('/order', methods=['POST'])
 def write_order():
+    time = datetime.datetime.now()
     name_receive = request.form['name_give']
     price_receive = request.form['price_give']
     qty_receive = request.form['qty_give']
     pay_receive = request.form['pay_give']
     order = {
+        'time' : time,
         'name': name_receive,
         'price': price_receive,
         'qty': qty_receive,
