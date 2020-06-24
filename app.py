@@ -17,13 +17,13 @@ def write_order():
     name_receive = request.form['name_give']
     price_receive = request.form['price_give']
     qty_receive = request.form['qty_give']
-    pay_receive = request.form['pay_give']
+    # pay_receive = request.form['pay_give']
     order = {
         'time' : time,
         'name': name_receive,
         'price': price_receive,
         'qty': qty_receive,
-        'pay': pay_receive
+        # 'pay': pay_receive
     }
     print(order)
     db.snack.insert_one(order)
