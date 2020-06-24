@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>컨스낵 주문하기</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="http://lite.payapp.kr/public/api/payapp-lite.js"></script>
+    <script>
+        PayApp.setDefault('userid',     'cctbspace');
+        PayApp.setDefault('shopname',   '컨센터블스페이스');
+    </script>
 
     <script>
         var products = [
@@ -108,8 +113,22 @@
                     }
                 }
                 if(tempPrice==0){alert("선택한 상품이 없습니다.")}else{
-                        alert("주문 금액은 " + tempPrice + " 원 입니다. 결제하시겠습니까?")
-                        location.href = 'http://www.payapp.kr/L/z1SIdB'
+                    var userInput = prompt("주문 금액은 " + tempPrice + "원 입니다. 결제하시겠습니까?"," 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다.")
+                        // alert("주문 금액은 " + tempPrice + " 원 입니다. 결제하시겠습니까?")
+                        if(userInput == null){ //취소 눌러도 문자메시지로 결제링크가 오는 것만 없애면 될 듯
+                            return false;
+                        }else{ //휴대폰번호 입력 안하고 확인 눌러도 결제창이 호출되는 것만 안되게 하면 될 듯
+                            location.href = "#"
+                        // location.href = 'http://www.payapp.kr/L/z1SIdB'
+                            function myPay(){
+                                PayApp.setParam('goodname', '컨스낵♥');
+                                PayApp.setParam('price', tempPrice);
+                                PayApp.setParam('recvphone', userInput);
+                                PayApp.setParam('redirectpay', '1');
+                                PayApp.call();
+                            }myPay();
+                        }
+                        
                     }
             
             }
@@ -121,6 +140,7 @@
 
 
     </script>
+
 </head>
 
 <body>
@@ -140,9 +160,14 @@
 
 
 
+    <!-- <a href="#" onclick="msgbox();">결제하기</a> -->
+
+
         <button onclick="msgbox()" type="button" class="btn btn-primary">
             주문하기
           </button>
+
+
 
 
 
