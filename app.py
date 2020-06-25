@@ -9,6 +9,10 @@ db = client.dbsparta                      # 'dbsparta'라는 이름의 db를 만
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/admin') #얘랑 아래 겟메소드의 어드민 URL은 달라야함.
+def admin():
+    return render_template('admin_html.html')
 ## API 역할을 하는 부분
 
 @app.route('/order', methods=['POST'])
@@ -30,9 +34,10 @@ def write_order():
     return jsonify({'result':'success', 'msg': '이 요청은 POST!'})
 
 
-@app.route('/order', methods=['GET'])
+@app.route('/api/admin', methods=['GET'])
 def read_orders():
-    data = list(db.orders.find({}, {'_id': False}))
+    data = list(db.snack.find({}, {'_id': False}))
+    print(data)
     return jsonify({'result':'success', 'msg': '이 요청은 GET!', 'orders': data})
 
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컨스낵 관리자</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "/api/admin",
+                data: {},
+                success: function(response){
+                    if (response['result'] == 'success') {
+                    let orders = response['orders'];
+                    orders = orders.reverse()
+                    for (let i = 0; i < orders.length ; i++) {
+                        // orders[i]['time'] = orders[i]['time'].getFullYear() + '-' +('0' + (orders[i]['time'].getMonth()+1)).slice(-2)+ '-' +  ('0' + orders[i]['time'].getDate()).slice(-2) + ' '+orders[i]['time'].getHours()+ ':'+('0' + (orders[i]['time'].getMinutes())).slice(-2)+ ':'+orders[i]['time'].getSeconds()
+                        var temp_html = `
+                            <tr>
+                                <td>${i+1}</td>
+                                <td>${orders[i]['time']}</td>
+                                <td>${orders[i]['name']}</td>
+                                <td>${orders[i]['price']}</td>
+                                <td>${orders[i]['qty']}</td>
+                            </tr>
+                            `;
+                            $('#orders-box').append(temp_html);
+
+                    }
+                    } else {
+                    alert('주문 내역을 받아오지 못했습니다.');
+                    }
+                }
+            })
+        });
+    </script>
+
+
+    
+</head>
+
+  <body>
+    <table>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>주문일시</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>주문 수량</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box"></tbody>
+    </table>
+  </body>
+</html>
