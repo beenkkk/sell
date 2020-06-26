@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>컨스낵 관리자</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
     <script>
       $(document).ready(function () {
         $.ajax({
@@ -19,11 +25,11 @@
                 // orders[i]['time'] = orders[i]['time'].getFullYear() + '-' +('0' + (orders[i]['time'].getMonth()+1)).slice(-2)+ '-' +  ('0' + orders[i]['time'].getDate()).slice(-2) + ' '+orders[i]['time'].getHours()+ ':'+('0' + (orders[i]['time'].getMinutes())).slice(-2)+ ':'+orders[i]['time'].getSeconds()
                 var temp_html = `
                             <tr>
-                                <td>${i + 1}</td>
-                                <td>${orders[i]["time"]}</td>
-                                <td>${orders[i]["name"]}</td>
-                                <td>${orders[i]["price"]}</td>
-                                <td>${orders[i]["qty"]}</td>
+                                <td align="center">${i + 1}</td>
+                                <td align="center">${orders[i]["time"]}</td>
+                                <td align="center">${orders[i]["name"]}</td>
+                                <td align="center">${orders[i]["price"]}</td>
+                                <td align="center">${orders[i]["qty"]}</td>
                             </tr>
                             `;
                 $("#orders-box").append(temp_html);
