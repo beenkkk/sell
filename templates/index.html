@@ -6,7 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>컨스낵 주문하기</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Noto+Sans+KR:wght@300&display=swap" rel="stylesheet">
     <script src="http://lite.payapp.kr/public/api/payapp-lite.js"></script>
+
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        body { 
+            font-family: 'Noto Sans KR', sans-serif;; 
+        }
+        .successButton {
+            box-shadow:inset 0px 1px 0px 0px #97c4fe;
+            background:linear-gradient(to bottom, #3d94f6 5%, #1e62d0 100%);
+            background-color:#3d94f6;
+            border-radius:6px;
+            border:1px solid #337fed;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #1570cd;
+        }
+        .successButton:hover {
+            background:linear-gradient(to bottom, #1e62d0 5%, #3d94f6 100%);
+            background-color:#1e62d0;
+        }
+        .successButton:active {
+            position:relative;
+            top:1px;
+        }
+
+        .cancelButton {
+            box-shadow:inset 0px 1px 0px 0px #f7c5c0;
+            background:linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
+            background-color:#fc8d83;
+            border-radius:6px;
+            border:1px solid #d83526;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:6px 24px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #b23e35;
+        }
+        .cancelButton:hover {
+            background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
+            background-color:#e4685d;
+        }
+        .cancelButton:active {
+            position:relative;
+            top:1px;
+        }
+
+    </style>
+
     <script>
         PayApp.setDefault('userid',     'cctbspace');
         PayApp.setDefault('shopname',   '컨센터블스페이스');
@@ -56,20 +118,104 @@
         ];
 
         $(document).ready(function(){
-            for (var i = 0; i < products.length; i++) {
-                            console.log(products[i]);
-                            var temp_html = `
-                            <tr>
-                                <td>${products[i].no}</td>
-                                <td data-name="${i+1}">${products[i].name}</td>
-                                <td data-price="${i+1}">${products[i].price}</td>
-                                <td><input type="checkbox" data-select="${i+1}"></td>
-                                <td><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
-                            </tr>
-                            `;
-                            $('#orders-box').append(temp_html);
+            for (var i = 0; i < 7; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box1').append(temp_html);
 
-                        }
+            }
+            for (var i = 7; i < 14; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box2').append(temp_html);
+
+            }
+            for (var i = 14; i < 18; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box3').append(temp_html);
+
+            }
+            for (var i = 18; i < 22; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box4').append(temp_html);
+
+            }
+            for (var i = 22; i < 29; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box5').append(temp_html);
+
+            }
+            for (var i = 29; i < 34; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box6').append(temp_html);
+
+            }
+            for (var i = 34; i < 39; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                    </tr>
+                    `;
+                $('#orders-box7').append(temp_html);
+
+            }
 
 
             $("input[type=checkbox]").change(function(){
@@ -134,21 +280,38 @@
             
             }
 
-
-
-
-
-
+            function reset(){
+                $("input[data-select]").prop('checked', false);
+                $("input[data-number]").hide();
+                $("input[data-number]").val(0);
+            }
 
     </script>
 
 </head>
 
 <body>
-    <h1>컨스낵 주문하기♥</h1>
+    <h1>무인매점 결제하기</h1>
+    <div style="border: 1px; float: left; width: 80%;">
+        <button onclick="msgbox()" type="button" class="successButton">주문하기</button>
+    </div>
+    <div style="border: 1px; float: left; width: 20%;">
+        <button onclick="reset()" type="button" class="cancelButton">선택 취소</button>
+    </div><br/>
+
+
+
+    <!-- <div style="width:50%">
+        <button onclick="msgbox()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+    <div style="width:50%">
+        <button onclick="reset()" type="button" class="btn btn-primary">리셋</button>
+    </div> -->
+
+
     <h2>▶ 1번 매대_팩 음료&기타류</h2>
     <h3>#얼음은_제빙기/정수기에서, 냉장 보관 음료는 스크롤을 내려서 맨 밑으로!</h3>
-    <table class="table" border="1">
+    <table class="table">
         <thead>
             <tr>
                 <th>No.</th>
@@ -158,19 +321,102 @@
                 <th>수량 조정</th>
             </tr>
         </thead>
-        <tbody id="orders-box"></tbody>
-    </table>
+        <tbody id="orders-box1"></tbody>
+    </table><br/>
+    
+    <h2>▶ 2번 매대_젤리류&스낵바&초콜렛류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box2"></tbody>
+    </table><br/>
+    
+    <h2>▶ 3번 매대_파이류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box3"></tbody>
+    </table><br/>
+    
+    <h2>▶ 4번 매대_과자&파이류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box4"></tbody>
+    </table><br/>
+    
+    <h2>▶ 5번 매대_과자류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box5"></tbody>
+    </table><br/>
+    
+    <h2>▶ 6번 매대_컵라면류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box6"></tbody>
+    </table><br/>
+    
+    <h2>▶ 냉장고_음료류</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>상품명</th>
+                <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
+            </tr>
+        </thead>
+        <tbody id="orders-box7"></tbody>
+    </table><br/>
 
 
 
     <!-- <a href="#" onclick="msgbox();">결제하기</a> -->
+    <div style="border: 1px; float: left; width: 80%;">
+        <button onclick="msgbox()" type="button" class="successButton">주문하기</button>
+    </div>
+    <div style="border: 1px; float: left; width: 20%;">
+        <button onclick="reset()" type="button" class="cancelButton">선택 취소</button>
+    </div><br/>
 
-
-        <button onclick="msgbox()" type="button" class="btn btn-primary">
-            주문하기
-          </button>
-
-    </body>
-    </html>
-
+</body>
 </html>
