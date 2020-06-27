@@ -21,12 +21,14 @@ def write_order():
     name_receive = request.form['name_give']
     price_receive = request.form['price_give']
     qty_receive = request.form['qty_give']
+    # phone_receive = request.form['phone_give']
     # pay_receive = request.form['pay_give']
     order = {
         'time' : time.strftime('%Y-%m-%d %H:%M:%S'),
         'name': name_receive,
         'price': price_receive,
         'qty': qty_receive,
+        # 'phone': phone_receive,
         # 'pay': pay_receive
     }
     # print(order)

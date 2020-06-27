@@ -101,6 +101,7 @@
                                 name_give: $("[data-name="+(i+1)+"]").text(),
                                 price_give: Number($("[data-price="+(i+1)+"]").text()),
                                 qty_give: $("input[data-number="+(i+1)+"]").val(),
+                                // phone_give: userInput,
                                 // pay_give: tempPrice,
 
                             },
@@ -115,9 +116,9 @@
                 if(tempPrice==0){alert("선택한 상품이 없습니다.")}else{
                     var userInput = prompt("주문 금액은 " + tempPrice + "원 입니다. 결제하시겠습니까?"," 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다.")
                         // alert("주문 금액은 " + tempPrice + " 원 입니다. 결제하시겠습니까?")
-                        if(userInput == null){ //취소 눌러도 문자메시지로 결제링크가 오는 것만 없애면 될 듯
+                        if(userInput == null || userInput == "" || userInput == " 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다."){
                             return false;
-                        }else{ //휴대폰번호 입력 안하고 확인 눌러도 결제창이 호출되는 것만 안되게 하면 될 듯
+                        }else{
                             location.href = "#"
                         // location.href = 'http://www.payapp.kr/L/z1SIdB'
                             function myPay(){
@@ -125,10 +126,10 @@
                                 PayApp.setParam('price', tempPrice);
                                 PayApp.setParam('recvphone', userInput);
                                 PayApp.setParam('redirectpay', '1');
+                                PayApp.setParam('smsuse', 'n');
                                 PayApp.call();
                             }myPay();
                         }
-                        
                     }
             
             }
@@ -153,6 +154,8 @@
                 <th>No.</th>
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
+                <th>선택</th>
+                <th>수량 조정</th>
             </tr>
         </thead>
         <tbody id="orders-box"></tbody>
@@ -167,38 +170,7 @@
             주문하기
           </button>
 
-
-
-
-
     </body>
     </html>
-
-
-
-    <!-- 구역을 나누는 태그들 -->
-    <div>나는 구역을 나누죠</div>
-    <p>나는 문단이에요</p>
-    <ul>
-        <li> bullet point!1 </li>
-        <li> bullet point!2 </li>
-    </ul>
-
-    <!-- 구역 내 콘텐츠 태그들 -->
-
-
-    <hr>
-    span 태그입니다: 특정 <span style="color:red">글자</span>를 꾸밀 때 써요
-    <hr>
-    a 태그입니다: <a href="http://naver.com/"> 하이퍼링크 </a>
-    <hr>
-    img 태그입니다: <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
-    <hr>
-    input 태그입니다: <input type="text" />
-    <hr>
-    button 태그입니다: <button> 버튼입니다</button>
-    <hr>
-    textarea 태그입니다: <textarea>나는 무엇일까요?</textarea>
-</body>
 
 </html>
