@@ -42,6 +42,13 @@ def read_orders():
     # print(data)
     return jsonify({'result':'success', 'msg': '이 요청은 GET!', 'orders': data})
 
+@app.route('/api/admin/date', methods=['POST'])
+def read_orders_search():
+    time_receive = request.form['time_give']
+    data = list(db.snack.find({'time':{ "$regex": time_receive }}, {'_id': False}))
+    print(data)
+    return jsonify({'result':'success', 'msg': '이 요청은 GET!', 'orders': data})
+
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
