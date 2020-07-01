@@ -18,6 +18,7 @@ def admin():
 
 @app.route('/order', methods=['POST'])
 def write_order():
+    KST = datetime.now(timezone('Asia/Seoul'))
     time = datetime.datetime.now()
     time_utc = datetime.datetime.now(datetime.timezone.utc)
     if time != time_utc:
@@ -56,4 +57,3 @@ def read_orders_search():
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
-    KST = datetime.now(timezone('Asia/Seoul'))
