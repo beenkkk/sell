@@ -128,7 +128,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -145,7 +145,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -163,7 +163,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -181,7 +181,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -199,7 +199,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -217,7 +217,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -235,7 +235,7 @@
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
                         <td align="center">
                             <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
-                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
                             <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
                         </td>
                     </tr>
@@ -315,8 +315,8 @@
                 $("input[data-select]").prop('checked', false);
                 $("input[data-number]").hide();
                 $("input[data-number]").val(0);
-                $("button[data-minus="+itemNo+"]").hide();
-                $("button[data-plus="+itemNo+"]").hide();  
+                $("button[data-minus]").hide();
+                $("button[data-plus]").hide();   
             }
 
     </script>
@@ -327,21 +327,21 @@
         $(function(){ 
             $('.bt_up').click(function(){ 
                 var n = $('.bt_up').index(this);
-                var num = $(".num:eq("+n+")").val();
+                var num = $(".num1:eq("+n+")").val();
                 if(num<10){
-                    num = $(".num:eq("+n+")").val(num*1+1);
+                    num = $(".num1:eq("+n+")").val(num*1+1);
                 }else{
-                    num = $(".num:eq("+n+")").val(num*1);
+                    num = $(".num1:eq("+n+")").val(num*1);
                 }
 
             });
             $('.bt_down').click(function(){ 
                 var n = $('.bt_down').index(this);
-                var num = $(".num:eq("+n+")").val();
+                var num = $(".num1:eq("+n+")").val();
                 if(num>1){
-                    num = $(".num:eq("+n+")").val(num*1-1);
+                    num = $(".num1:eq("+n+")").val(num*1-1);
                 }else{
-                    num = $(".num:eq("+n+")").val(num*1);
+                    num = $(".num1:eq("+n+")").val(num*1);
                 }
 
             });
@@ -362,8 +362,6 @@
         <button onclick="reset()" type="button" class="cancelButton">선택 취소</button>
     </div><br/>
 
-
-
     <!-- <div style="width:50%">
         <button onclick="msgbox()" type="button" class="btn btn-primary">주문하기</button>
     </div>
@@ -380,7 +378,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격ㅋㅋ(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -394,7 +392,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -408,7 +406,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -422,7 +420,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -436,7 +434,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -450,7 +448,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
@@ -464,7 +462,7 @@
             <tr>
                 <th>No.</th>
                 <th>상품명</th>
-                <th>개당 가격(원)</th>
+                <th>가격(원)</th>
                 <th>선택</th>
                 <th>　수량 조정　</th>
             </tr>
