@@ -126,21 +126,28 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box1').append(temp_html);
-
             }
             for (var i = 7; i < 14; i++) {
                 // console.log(products[i]);
                 var temp_html = `
-                    <tr>
+                <tr>
                         <td align="center">${products[i].no}</td>
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box2').append(temp_html);
@@ -154,7 +161,11 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box3').append(temp_html);
@@ -168,7 +179,11 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box4').append(temp_html);
@@ -182,7 +197,11 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box5').append(temp_html);
@@ -196,7 +215,11 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box6').append(temp_html);
@@ -210,7 +233,11 @@
                         <td align="center" data-name="${i+1}">${products[i].name}</td>
                         <td align="center" data-price="${i+1}">${products[i].price}</td>
                         <td align="center"><input type="checkbox" data-select="${i+1}"></td>
-                        <td align="center"><input type="number" data-number="${i+1}" min="1" max="4" style="display: none"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="number" class="num" data-number="${i+1}" style="display: none">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
                     </tr>
                     `;
                 $('#orders-box7').append(temp_html);
@@ -224,12 +251,16 @@
                         // console.log(itemNo)
                         $("input[data-number="+itemNo+"]").show();
                         $("input[data-number="+itemNo+"]").val(1);
+                        $("button[data-minus="+itemNo+"]").show();
+                        $("button[data-plus="+itemNo+"]").show();
                         // console.log(($("[data-price="+itemNo+"]").text())*$("input[data-number="+itemNo+"]").val())
                     }else{
                         var itemNo = $(this).data("select")
                         // console.log(itemNo)
                         $("input[data-number="+itemNo+"]").hide();
-                        $("input[data-number="+itemNo+"]").val(0);                        
+                        $("input[data-number="+itemNo+"]").val(0);
+                        $("button[data-minus="+itemNo+"]").hide();
+                        $("button[data-plus="+itemNo+"]").hide();                        
                     }
                 });
             });
@@ -284,9 +315,41 @@
                 $("input[data-select]").prop('checked', false);
                 $("input[data-number]").hide();
                 $("input[data-number]").val(0);
+                $("button[data-minus="+itemNo+"]").hide();
+                $("button[data-plus="+itemNo+"]").hide();  
             }
 
     </script>
+
+
+    <script>
+
+        $(function(){ 
+            $('.bt_up').click(function(){ 
+                var n = $('.bt_up').index(this);
+                var num = $(".num:eq("+n+")").val();
+                if(num<10){
+                    num = $(".num:eq("+n+")").val(num*1+1);
+                }else{
+                    num = $(".num:eq("+n+")").val(num*1);
+                }
+
+            });
+            $('.bt_down').click(function(){ 
+                var n = $('.bt_down').index(this);
+                var num = $(".num:eq("+n+")").val();
+                if(num>1){
+                    num = $(".num:eq("+n+")").val(num*1-1);
+                }else{
+                    num = $(".num:eq("+n+")").val(num*1);
+                }
+
+            });
+        })
+
+    </script>
+
+
 
 </head>
 
@@ -308,6 +371,7 @@
         <button onclick="reset()" type="button" class="btn btn-primary">리셋</button>
     </div> -->
 
+        
 
     <h2>▶ 1번 매대_팩 음료&기타류</h2>
     <h3>#얼음은_제빙기/정수기에서, 냉장 보관 음료는 스크롤을 내려서 맨 밑으로!</h3>
@@ -318,7 +382,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box1"></tbody>
@@ -332,7 +396,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box2"></tbody>
@@ -346,7 +410,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box3"></tbody>
@@ -360,7 +424,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box4"></tbody>
@@ -374,7 +438,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box5"></tbody>
@@ -388,7 +452,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box6"></tbody>
@@ -402,7 +466,7 @@
                 <th>상품명</th>
                 <th>개당 가격(원)</th>
                 <th>선택</th>
-                <th>수량 조정</th>
+                <th>　수량 조정　</th>
             </tr>
         </thead>
         <tbody id="orders-box7"></tbody>
