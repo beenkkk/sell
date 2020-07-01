@@ -192,6 +192,7 @@ function search(){
         });
     }
     else{
+      $("#orders-box").empty();
       $.ajax({
           type: "GET",
           url: "/api/admin",

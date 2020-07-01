@@ -291,9 +291,9 @@
                     }
                 }
                 if(tempPrice==0){alert("선택한 상품이 없습니다.")}else{
-                    var userInput = prompt("주문 금액은 " + tempPrice + "원 입니다. 결제하시겠습니까?"," 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다.")
+                    var userInput = prompt("주문 금액은 " + tempPrice + "원 입니다. 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다.")
                         // alert("주문 금액은 " + tempPrice + " 원 입니다. 결제하시겠습니까?")
-                        if(userInput == null || userInput == "" || userInput == " 휴대폰 번호 입력 후 확인을 누르면 결제창이 호출됩니다."){
+                        if(userInput == null || userInput == ""){
                             return false;
                         }else{
                             location.href = "#"
