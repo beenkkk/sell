@@ -159,14 +159,14 @@
 
 function search(){
   if($("input[data-value='today']").prop('checked')){
-    $('#startDate').val(getTodayType())
-    $('#endDate').val(getTodayType())
+    // $('#startDate').val(getTodayType())
+    // $('#endDate').val(getTodayType())
       $("#orders-box").empty();
       $.ajax({
           type: "POST",
           url: "/api/admin/date",
           data: {
-            time_give: $("#endDate").val(),
+            time_give: getTodayType(),
             },
           success: function (response) {
             if (response["result"] == "success") {
@@ -191,11 +191,36 @@ function search(){
           },
         });
     }
-    elif($("input[data-value='week']").prop('checked')){
-      $('#startDate').val(getTodayType())
-      $('#endDate').val(getTodayType())
-      $("#orders-box").empty();
+    else{
+      $.ajax({
+          type: "GET",
+          url: "/api/admin",
+          data: {},
+          success: function (response) {
+            if (response["result"] == "success") {
+              let orders = response["orders"];
+              orders = orders.reverse();
+              for (let i = 0; i < orders.length; i++) {
+                // orders[i]['time'] = orders[i]['time'].getFullYear() + '-' +('0' + (orders[i]['time'].getMonth()+1)).slice(-2)+ '-' +  ('0' + orders[i]['time'].getDate()).slice(-2) + ' '+orders[i]['time'].getHours()+ ':'+('0' + (orders[i]['time'].getMinutes())).slice(-2)+ ':'+orders[i]['time'].getSeconds()
+                var temp_html = `
+                            <tr>
+                                <td align="center">${i + 1}</td>
+                                <td align="center">${orders[i]["time"]}</td>
+                                <td align="center">${orders[i]["name"]}</td>
+                                <td align="center">${orders[i]["price"]}</td>
+                                <td align="center">${orders[i]["qty"]}</td>
+                            </tr>
+                            `;
+                $("#orders-box").append(temp_html);
+              }
+            } else {
+              alert("주문 내역을 받아오지 못했습니다.");
+            }
+          },
+        });
     }
+
+    
 
   };
 
@@ -222,12 +247,12 @@ function search(){
 
   <body>
     <input type="radio" name="chk_date" data-value="today" value="오늘">오늘
-    <input type="radio" name="chk_date" data-value="week" value="1주일">1주일
-    <input type="radio" name="chk_date" data-value="month" value="1개월">1개월
+    <!-- <input type="radio" name="chk_date" data-value="week" value="1주일">1주일
+    <input type="radio" name="chk_date" data-value="month" value="1개월">1개월 -->
     <input type="radio" name="chk_date" data-value="all" value="전체" checked="checked">전체
 
-    <input type="text" id="startDate">
-    <input type="text" id="endDate">
+    <!-- <input type="text" id="startDate">
+    <input type="text" id="endDate"> -->
 
     <button type="button" onclick="search()">
       Search
