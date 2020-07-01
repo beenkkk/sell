@@ -1,4 +1,5 @@
 import requests, datetime
+from pytz import timezone, utc
 from bs4 import BeautifulSoup
 from flask import Flask, render_template, jsonify, request
 app = Flask(__name__)
@@ -18,6 +19,9 @@ def admin():
 @app.route('/order', methods=['POST'])
 def write_order():
     time = datetime.datetime.now()
+    time_utc = datetime.datetime.now(datetime.timezone.utc)
+    if time == time_utc:
+        time.replace(tzinfo=KST)
     name_receive = request.form['name_give']
     price_receive = request.form['price_give']
     qty_receive = request.form['qty_give']
