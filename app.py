@@ -20,7 +20,7 @@ def admin():
 def write_order():
     time = datetime.datetime.now()
     time_utc = datetime.datetime.now(datetime.timezone.utc)
-    if time == time_utc:
+    if time != time_utc:
         time.replace(tzinfo=KST)
     name_receive = request.form['name_give']
     price_receive = request.form['price_give']
