@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="컨스낵_이수 주문하기" />
+    <meta property="og:title" content="컨스낵 주문하기" />
     <meta property="og:description" content="여기가 간식 맛집" />
     <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
     <title>컨스낵 주문하기</title>
@@ -79,32 +79,49 @@
 
     <script>
         var products = [
-            { no: 1, name: '인절미스낵',  price: 1500 },
-            { no: 2, name: '퍼프 콤보팩',  price: 2500 },
-            { no: 3, name: '트레일믹스넛',  price: 500 },
-            { no: 4, name: 'famousamos 쿠키',  price: 1000 },
-            { no: 5, name: '스트로베리&요거트',  price: 1000 },
-            { no: 6, name: '콤보스 치즈크래커',  price: 1500 },
-            { no: 7, name: '라고 베스트',  price: 1000 },
-            { no: 8, name: '프레디케이크',  price: 1000 },
-            { no: 9, name: '크리스피롤',  price: 1000 },
-            { no: 10, name: '다이제스티브투고',  price: 1500 },
-            { no: 11, name: '새우탕',  price: 1500 },
-            { no: 12, name: '튀김우동',  price: 1500 },
-            { no: 13, name: '참깨라면',  price: 1000 },
-            { no: 14, name: '신라면소컵',  price: 1500 },
-            { no: 15, name: '코카콜라 350ml',  price: 1000 },
-            { no: 16, name: '레쓰비',  price: 500 },
-            { no: 17, name: '망고주스',  price: 1000 },
-            { no: 18, name: '허쉬드링크',  price: 500 },
-            { no: 19, name: '웰치스젤리',  price: 500 },
-            { no: 20, name: '트윅스 미니(2개)',  price: 500 },
-            { no: 21, name: '몰티져스초코볼',  price: 2500 },
-            { no: 22, name: '하리보젤리',  price: 1500 },
+            { no: 1, name: '복숭아</br>아이스티',  price: 1000 },
+            { no: 2, name: '블루레몬</br>에이드',  price: 1000 },
+            { no: 3, name: '청포도</br>에이드',  price: 1000 },
+            { no: 4, name: '맥스봉',  price: 1000 },
+            { no: 5, name: '맛밤',  price: 1500 },
+            { no: 6, name: '웰치스</br>후르츠 젤리',  price: 500 },
+            { no: 7, name: '몰티져스</br>초코볼',  price: 500 },
+            { no: 8, name: '하리보</br>푸르티부시',  price: 1500 },
+            { no: 9, name: '하리보</br>스타믹스',  price: 1500 },
+            { no: 10, name: '마이구미</br>(복숭아)',  price: 1000 },
+            { no: 11, name: '마이구미</br>(포도)',  price: 1000 },
+            { no: 12, name: '트레일</br>믹스바',  price: 1000 },
+            { no: 13, name: '그래놀라바',  price: 1000 },
+            { no: 14, name: '니블스</br>초코볼',  price: 1500 },
+            { no: 15, name: '카스타드',  price: 500 },
+            { no: 16, name: '피네스</br>케이크',  price: 500 },
+            { no: 17, name: '스트로베리</br>&요거트',  price: 500 },
+            { no: 18, name: '카페모카롤</br>(2개)',  price: 500 },
+            { no: 19, name: '다이제',  price: 1000 },
+            { no: 20, name: '오레오쿠키',  price: 1000 },
+            { no: 21, name: '라이스</br>크리스피',  price: 1000 },
+            { no: 22, name: '미니</br>브라우니',  price: 1000 },
+            { no: 23, name: '인절미스낵',  price: 1000 },
+            { no: 24, name: '라고 와퍼</br>(카카오/네이비)',  price: 2500 },
+            { no: 25, name: '라고 와퍼</br>(바닐라/블루)',  price: 2500 },
+            { no: 26, name: '라고 와퍼</br>(헤이즐넛/레드)',  price: 2500 },
+            { no: 27, name: '퍼프 초코',  price: 2500 },
+            { no: 28, name: '퍼프 밀크',  price: 2500 },
+            { no: 29, name: '콤보스</br>치즈크래커',  price: 1500 },
+            { no: 30, name: '까르보나라</br>불닭볶음면',  price: 1500 },
+            { no: 31, name: '짜파구리',  price: 1500 },
+            { no: 32, name: '육개장</br>사발면',  price: 1000 },
+            { no: 33, name: '컵누들</br>(매콤/소)',  price: 1000 },
+            { no: 34, name: '참깨라면</br>소컵',  price: 1000 },
+            { no: 35, name: '스위티</br>자몽 주스',  price: 1000 },
+            { no: 36, name: '허쉬 초콜릿</br>드링크',  price: 1000 },
+            { no: 37, name: '망고주스',  price: 1000 },
+            { no: 38, name: '검은콩</br>두유',  price: 1000 },
+            { no: 39, name: '코카콜라',  price: 1500 },
         ];
 
         $(document).ready(function(){
-            for (var i = 0; i < 11; i++) {
+            for (var i = 0; i < 7; i++) {
                 // console.log(products[i]);
                 var temp_html = `
                     <tr>
@@ -121,7 +138,7 @@
                     `;
                 $('#orders-box1').append(temp_html);
             }
-            for (var i = 11; i < 15; i++) {
+            for (var i = 7; i < 14; i++) {
                 // console.log(products[i]);
                 var temp_html = `
                 <tr>
@@ -139,7 +156,7 @@
                 $('#orders-box2').append(temp_html);
 
             }
-            for (var i = 15; i < 19; i++) {
+            for (var i = 14; i < 18; i++) {
                 // console.log(products[i]);
                 var temp_html = `
                     <tr>
@@ -157,7 +174,7 @@
                 $('#orders-box3').append(temp_html);
 
             }
-            for (var i = 19; i < 23; i++) {
+            for (var i = 18; i < 22; i++) {
                 // console.log(products[i]);
                 var temp_html = `
                     <tr>
@@ -175,7 +192,60 @@
                 $('#orders-box4').append(temp_html);
 
             }
-            
+            for (var i = 22; i < 29; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
+                    </tr>
+                    `;
+                $('#orders-box5').append(temp_html);
+
+            }
+            for (var i = 29; i < 34; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
+                    </tr>
+                    `;
+                $('#orders-box6').append(temp_html);
+
+            }
+            for (var i = 34; i < 39; i++) {
+                // console.log(products[i]);
+                var temp_html = `
+                    <tr>
+                        <td align="center">${products[i].no}</td>
+                        <td align="center" data-name="${i+1}">${products[i].name}</td>
+                        <td align="center" data-price="${i+1}">${products[i].price}</td>
+                        <td align="center"><input type="checkbox" data-select="${i+1}"></td>
+                        <td align="center">
+                            <button type="button" class="bt_down" data-minus="${i+1}" style="display: none">-</button>
+                            <input type="text" class="num1" data-number="${i+1}" style="display: none; text-align:center; width:20px;">
+                            <button type="button" class="bt_up" data-plus="${i+1}" style="display: none">+</button>
+                        </td>
+                    </tr>
+                    `;
+                $('#orders-box7').append(temp_html);
+
+            }
 
 
             $("input[type=checkbox]").change(function(){
@@ -232,7 +302,7 @@
                             location.href = "#"
                         // location.href = 'http://www.payapp.kr/L/z1SIdB'
                             function myPay(){
-                                PayApp.setParam('goodname', '컨스낵_이수♥');
+                                PayApp.setParam('goodname', '컨스낵♥');
                                 PayApp.setParam('price', tempPrice);
                                 PayApp.setParam('recvphone', userInput);
                                 PayApp.setParam('redirectpay', '1');
@@ -304,8 +374,8 @@
 
         
 
-    <h2>▶ 1번 매대_과자류</h2>
-    <!-- <h3>#얼음은_제빙기/정수기에서, 냉장 보관 음료는 스크롤을 내려서 맨 밑으로!</h3> -->
+    <h2>▶ 1번 매대_팩 음료&기타류</h2>
+    <h3>#얼음은_제빙기/정수기에서, 냉장 보관 음료는 스크롤을 내려서 맨 밑으로!</h3>
     <table class="table">
         <thead>
             <tr>
@@ -319,7 +389,7 @@
         <tbody id="orders-box1"></tbody>
     </table><br/>
     
-    <h2>▶ 2번 매대_라면류</h2>
+    <h2>▶ 2번 매대_젤리류&스낵바&초콜렛류</h2>
     <table class="table">
         <thead>
             <tr>
@@ -333,7 +403,7 @@
         <tbody id="orders-box2"></tbody>
     </table><br/>
     
-    <h2>▶ 3번 매대_음료류</h2>
+    <h2>▶ 3번 매대_파이류</h2>
     <table class="table">
         <thead>
             <tr>
@@ -347,7 +417,7 @@
         <tbody id="orders-box3"></tbody>
     </table><br/>
     
-    <h2>▶ 4번 매대_젤리류</h2>
+    <h2>▶ 4번 매대_과자&파이류</h2>
     <table class="table">
         <thead>
             <tr>
@@ -361,7 +431,7 @@
         <tbody id="orders-box4"></tbody>
     </table><br/>
     
-    <!-- <h2>▶ 5번 매대_과자류</h2>
+    <h2>▶ 5번 매대_과자류</h2>
     <table class="table">
         <thead>
             <tr>
@@ -401,7 +471,7 @@
             </tr>
         </thead>
         <tbody id="orders-box7"></tbody>
-    </table><br/> -->
+    </table><br/>
 
 
 

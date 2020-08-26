@@ -38,20 +38,20 @@ def write_order():
         # 'pay': pay_receive
     }
     # print(order)
-    db.snack_isu.insert_one(order)
+    db.snack.insert_one(order)
     return jsonify({'result':'success', 'msg': '이 요청은 POST!'})
 
 
 @app.route('/api/admin', methods=['GET'])
 def read_orders():
-    data = list(db.snack_isu.find({}, {'_id': False}))
+    data = list(db.snack.find({}, {'_id': False}))
     # print(data)
     return jsonify({'result':'success', 'msg': '이 요청은 GET!', 'orders': data})
 
 @app.route('/api/admin/date', methods=['POST'])
 def read_orders_search():
     time_receive = request.form['time_give']
-    data = list(db.snack_isu.find({'time':{ "$regex": time_receive }}, {'_id': False}))
+    data = list(db.snack.find({'time':{ "$regex": time_receive }}, {'_id': False}))
     print(data)
     return jsonify({'result':'success', 'msg': '이 요청은 GET!', 'orders': data})
 
